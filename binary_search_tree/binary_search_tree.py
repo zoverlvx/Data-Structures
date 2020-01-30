@@ -63,10 +63,12 @@ class BinarySearchTree:
         if not curr:
             return
         cb(curr.value)
-        if curr.left:
-            self.traverse(curr.left, cb)
-        if curr.right:
-            self.traverse(curr.right, cb)
+        self.traverse(curr.left, cb)
+        self.traverse(curr.right, cb)
+        #if curr.left:
+        #    self.traverse(curr.left, cb)
+        #if curr.right:
+        #    self.traverse(curr.right, cb)
 
     # DAY 2 Project -----------------------
 
@@ -114,8 +116,14 @@ class BinarySearchTree:
 
     # Print In-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        if node:
+            print(node.value)
+            self.pre_order_dft(node.left)
+            self.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if node:
+            self.post_order_dft(node.left)
+            self.post_order_dft(node.right)
+            print(node.value)
